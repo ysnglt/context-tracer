@@ -3,6 +3,10 @@
   "version": "0.6.0",
   "description": "context tracing for node event loop",
   "main": "src/index.ts",
+  "repository": {
+    "url": "https://github.com/ysnglt/context-tracer"
+  },
+  "keywords": ["mdc", "context", "log"],
   "dependencies": {
     "cls-hooked": "^4.2.2",
     "uuid": "^3.1.0"

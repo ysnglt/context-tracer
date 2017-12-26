@@ -12,6 +12,10 @@ The following code :
 ```js
 const tracer = require("context-tracer");
 
+function writeLog(log) {
+  logger.log(log + " - stack n°", tracer.get());
+}
+
 tracer.set(() => {
   // all operations called within the tracer will inherit a unique context ID
   // including their childs
@@ -20,10 +24,6 @@ tracer.set(() => {
   // called within the tracer, and inherits the ID
   writeLog("2nd call");
 });
-
-function writeLog(log) {
-  logger.log(log + " - stack n°", tracer.get());
-}
 
 tracer.set(() => {
   writeLog("3rd call");

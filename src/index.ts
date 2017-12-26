@@ -8,8 +8,14 @@ const CONTEXT = "CONTEXT";
 
 const context = cls.createNamespace(CONTEXT);
 
-const set = (callback: () => void) => {
+const set = (callback: () => void, eventEmitters?: EventEmitter[]) => {
   const contextId = uuid.v1();
+
+  if (eventEmitters) {
+    for (const em of eventEmitters) {
+      context.bindEmitter(em);
+    }
+  }
 
   context.run(() => {
     context.set(CONTEXT_ID, contextId);

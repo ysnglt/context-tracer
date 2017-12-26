@@ -18,12 +18,10 @@ const set = (callback: () => void) => {
 };
 
 const get = (): string => {
-  const context = cls.getNamespace(CONTEXT);
+  const currentContext = cls.getNamespace(CONTEXT);
+  const contextName = currentContext.get(CONTEXT_ID);
 
-  let contextId = context.get(CONTEXT_ID)
-    ? context.get(CONTEXT_ID)
-    : "no context";
-  return contextId;
+  return contextName ? contextName : "no context";
 };
 
 export = { set, get };

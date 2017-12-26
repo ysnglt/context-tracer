@@ -1,5 +1,6 @@
 {
   "extends": ["tslint:latest", "tslint-config-prettier"],
+  "linterOptions": { "exclude": ["bin"] },
   "rules": {
     "no-implicit-dependencies": [true, "dev"],
     "ban-types": false

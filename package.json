@@ -25,7 +25,8 @@
   },
   "scripts": {
     "prepare": "gulp",
-    "test": "mocha -r ts-node/register test/index.ts"
+    "test": "mocha -r ts-node/register test/index.ts",
+    "posttest": "tslint --project ."
   },
   "author": "ysnglt",
   "license": "MIT"

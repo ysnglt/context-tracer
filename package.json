@@ -1,6 +1,6 @@
 {
   "name": "context-tracer",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "context tracing for node event loop",
   "main": "src/index.ts",
   "repository": {

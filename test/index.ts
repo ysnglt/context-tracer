@@ -36,17 +36,15 @@ describe("context tracer", () => {
   });
 
   it("should provide different contexts - nested calls", async () => {
-    let deepTrace = "",
-      firstTrace = "",
-      secondTrace;
+    let deepTrace = "";
+    let firstTrace = "";
+    let secondTrace = "";
 
     await trace(async () => {
       firstTrace = tracer.get();
-
       await trace(() => {
         deepTrace = tracer.get();
       });
-
       secondTrace = tracer.get();
     });
 

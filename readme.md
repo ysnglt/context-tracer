@@ -1,41 +1,48 @@
 # context-tracer : log context info, for your node apps
 
-> :bookmark: Propagates a unique context ID throughout calls.
-> Similar to Java MDC and the likes.
+Propagates a unique context ID throughout calls. Similar to Java MDC and the likes.
 
-> For node 4.7 +.
+> For node 6+.
 
 ## Usage
+
+Returns a callback, augmented with a unique context UUID. Within this callback, all operations (and their childs) will inherit the unique ID.
+
+```js
+tracer.set(() => {
+  // all nested calls have now access to a unique context ID
+  console.log(tracer.get()); // you can now log it
+});
+```
+
+## Example
 
 The following code :
 
 ```js
 const tracer = require("context-tracer");
 
-function writeLog(log) {
-  logger.log(log + " - stack n°", tracer.get());
+function callThings() {
+  nested();
+}
+
+function nested() {
+  console.log("nested call - stack n°", tracer.get());
 }
 
 tracer.set(() => {
-  // all operations called within the tracer will inherit a unique context ID
-  // including their childs
-  logger.log("1st call - stack n°", tracer.get());
+  console.log("first call - stack n°", tracer.get());
 
   // called within the tracer, and inherits the ID
-  writeLog("2nd call");
-});
-
-tracer.set(() => {
-  writeLog("3rd call");
+  callThings();
 });
 ```
 
 Will print :
 
 ```js
-> 1st call : stack n°AAAA
-> 2st call : stack n°AAAA
-> 3rd call : stack n°BBBB
+> first call : stack n°AAAA
+> nested call : stack n°AAAA
 ```
 
 ## Installation
@@ -57,6 +64,8 @@ tracer.set(() => {
 });
 ```
 
+You can nest context augments : the new context ID will override the previous one, only for its callback operations.
+
 ### tracer.get() ⇒ `string`
 
 * Retrieves current context ID
@@ -67,6 +76,10 @@ console.log("stack n°" + tracer.get());
 
 > stack n°AAAA
 ```
+
+## :warning: Node 6-7 users
+
+While this package supports node 6-7, the underlying architecture is considered experimental for these versions. Read more [here](https://www.npmjs.com/package/cls-hooked).
 
 ## Local installation
 

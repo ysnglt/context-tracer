@@ -1,12 +1,26 @@
 {
   "name": "context-tracer",
-  "version": "0.6.1",
+  "version": "0.6.3",
   "description": "context tracing for node event loop",
   "main": "src/index.ts",
   "repository": {
     "url": "https://github.com/ysnglt/context-tracer"
   },
-  "keywords": ["mdc", "context", "log"],
+  "keywords": [
+    "logger",
+    "logging",
+    "log",
+    "cls",
+    "continuation local storage",
+    "continuation-local-storage",
+    "continuationlocalstorage",
+    "mapper diagnostic context",
+    "mdc",
+    "trace",
+    "tracing",
+    "shared",
+    "context"
+  ],
   "dependencies": {
     "cls-hooked": "^4.2.2",
     "uuid": "^3.1.0"
@@ -29,8 +43,7 @@
   },
   "scripts": {
     "prepare": "gulp",
-    "test": "mocha -r ts-node/register test/index.ts",
-    "posttest": "tslint --project ."
+    "test": "mocha -r ts-node/register test/index.ts"
   },
   "author": "ysnglt",
   "license": "MIT"

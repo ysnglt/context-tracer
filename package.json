@@ -43,7 +43,9 @@
   },
   "scripts": {
     "prepare": "gulp",
-    "test": "mocha -r ts-node/register test/index.ts"
+    "test": "mocha -r ts-node/register test/index.ts",
+    "lint": "tslint --project .",
+    "format": "prettier --write {src,test}/**/*.ts"
   },
   "author": "ysnglt",
   "license": "MIT"

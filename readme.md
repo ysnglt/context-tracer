@@ -1,5 +1,7 @@
 # context-tracer : log context info, for your node apps
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ysnglt/context-tracer.svg)](https://greenkeeper.io/)
+
 Propagates a unique context ID throughout calls. Similar to Java MDC and the likes.
 
 > For node 6+.

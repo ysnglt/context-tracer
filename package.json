@@ -29,7 +29,7 @@
     "@types/cls-hooked": "^4.2.0",
     "@types/uuid": "^3.4.3",
     "@types/mocha": "^5.0.0",
-    "@types/node": "^9.4.0",
+    "@types/node": "^10.3.6",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-json-editor": "^2.2.1",
